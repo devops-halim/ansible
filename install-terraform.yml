@@ -1,0 +1,16 @@
+- hosts: test,centos
+  tasks:
+    - name: install wget
+      package:
+        name: wget
+    - name: install unzip
+      package:
+        name: unzip
+    - name: install terraform
+      unarchive:
+        src: https://releases.hashicorp.com/terraform/1.5.3/terraform_1.5.3_linux_386.zip
+        dest: /usr/local/bin
+        remote_src: yes
+        mode: 0755
+        owner: root 
+        group: root 
