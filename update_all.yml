@@ -1,0 +1,7 @@
+---
+- hosts: prod,lbl
+  tasks:
+    - name: creat halim file
+      file: path=/root/file.txt state=touch mode=777
+    - name: delete file
+      file: path=/root/file.txt state=absent

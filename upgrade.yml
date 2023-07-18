@@ -1,0 +1,31 @@
+- hosts: test,centos
+  pre_tasks:
+    - name : update and upgrade (Centos)
+      tags: always
+      # ansible-playbook  --list-tags upgrade.yml 
+      dnf:
+        update_only: yes
+        update_cache: yes
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+    - name: update and upgrade (Debian and ubunut)
+      apt:
+        upgrade: dist
+        update_cache: yes
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- hosts : centos
+  tasks:
+    - name: install mariadb package(centos)
+      dnf:
+        # ystemctl enable mariadb.service && systemctl start mysqld.service
+        name: mariadb-server
+        state: latest
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+- hosts : test
+  tasks:
+    - name: install mariadb package(ubunut or debian)
+      apt:
+        name: mariadb-server
+        state: latest
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

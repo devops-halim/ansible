@@ -1,0 +1,10 @@
+- hosts: test,centos
+  tasks:
+  - name: install packge apache and php
+    package:
+      name: 
+        - "{{apache_package}}"
+        - "{{php_package}}"
+        #- "{{docker_package}}"
+      state: latest
+      update_cache: yes 
