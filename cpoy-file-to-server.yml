@@ -1,0 +1,10 @@
+- hosts: test,centos
+  tasks:
+    - name : copy default tml file for web site
+      tags: copy
+      copy: 
+        src: default_site.html
+        dest: /var/www/html/index.html
+        owner: root 
+        group: root 
+        mode: 0644
