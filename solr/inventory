@@ -1,0 +1,3 @@
+[solr]
+your.public.ip ansible_user=root ansible_private_key_file=~/.ssh/privat-key
+your.public.ip ansible_user=root ansible_private_key_file=~/.ssh/privat-key

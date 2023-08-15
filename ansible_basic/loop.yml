@@ -1,0 +1,6 @@
+---
+- hosts: ubuntu
+  tasks:
+  - name: with_sequence -> loop
+    debug: msg= "{{item}}"
+    loop: "{{range(0, 5)|list }}"

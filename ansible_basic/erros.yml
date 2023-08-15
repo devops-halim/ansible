@@ -1,0 +1,4 @@
+tasks:
+ -shell: /usr/local/bin/mkusr.sh
+ register: mkusr_result
+ failed_when: “’password missing’ in mkuser_result.stdout”

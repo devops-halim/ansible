@@ -1,0 +1,23 @@
+#  ansible-playbook ansible_tags.yml -i inventory --tags network_analysis
+---
+- name: Understand Ansible Tags
+  hosts: centos
+  tasks:
+    - name: Install network Analysis Packages
+      package:
+        name: "{{item}}"
+        state: installed
+      with_items:
+      - nmap
+      - wireshark
+      tags:
+      - network_analysis
+    - name: Install lamp packages
+      package:
+        name: "{{item}}"
+        state: installed
+      with_items:
+      - httpd
+      - mariadb-server
+      tags:
+      - lamp

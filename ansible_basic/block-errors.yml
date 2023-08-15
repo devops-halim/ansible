@@ -1,0 +1,17 @@
+---
+- name: Error handling in Blocks
+  hosts: all
+  tasks:
+  - block:
+    - name: Upgrading Database
+      shell:
+        cmd: /opt/db_scripts/upgrade-database
+    rescue:
+     - name: Revert If Upgrade failure happens
+       shell:
+        cmd: /opt/db_scripts/revert-database
+    always:
+      - name: Restart the database
+        service:
+          name: mariadb
+          state: restarted

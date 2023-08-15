@@ -1,0 +1,6 @@
+[centos]
+cen_node_01
+cen_node_02
+[ubuntu]
+ubu_node_01
+deb_node_02 

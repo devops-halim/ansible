@@ -1,0 +1,11 @@
+---
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Install below listed packages on ubuntu machines
+    apt: name={{item}} state=latest
+    with_items:
+    - nano
+    - vim
+    - python3
+    - wget

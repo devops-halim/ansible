@@ -1,0 +1,7 @@
+- hosts: centos
+  tasks:
+  - name: Execute whoami Command
+    shell: whoami
+    register: whoami_output
+  - name: Display the output
+    debug: msg={{whoami_output.stdout_lines}}

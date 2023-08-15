@@ -1,0 +1,8 @@
+---
+- hosts: ubuntu
+  tasks:
+  - name: Execute whoami Command
+    shell: pwd #whoami
+    register: whoami_output
+  - name: Display the output
+    debug: var=whoami_output.stdout_lines

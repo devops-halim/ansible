@@ -1,0 +1,7 @@
+---
+- hosts: centos
+  tasks:
+  - name: Execute uname
+    shell: uname -a>/tmp/ansible_output.txt
+  - name: Execute Whoami
+    shell: whoami >>/tmp/ansible_output.txt

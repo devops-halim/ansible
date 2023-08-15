@@ -1,0 +1,8 @@
+---
+- hosts: centos
+  vars:
+  - name: Waqas Irtaza
+  - address: Dubai UAE
+  tasks:
+  - name: Print variables
+    shell: echo "My name is {{name}} and I am located in {{address}}">/tmp/ansible-output.txt

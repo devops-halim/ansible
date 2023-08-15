@@ -1,0 +1,7 @@
+---
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Display sequence from 0 to 10
+    debug: msg="{{item}}"
+    with_sequence: start=0 end=10

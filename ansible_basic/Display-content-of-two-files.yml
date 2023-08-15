@@ -1,0 +1,9 @@
+---
+- hosts: ubuntu
+  become: yes
+  tasks:
+  - name: Display content of files
+    debug: msg="{{item}}"
+    with_file:
+    - ip.txt
+    - host.txt

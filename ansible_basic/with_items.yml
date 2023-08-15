@@ -1,0 +1,9 @@
+- name: Manage Group Membership for users
+  user:
+    name: “{{item.name}}”
+    state: present
+    groups: “{{item.group}}”
+  with_items:
+  - {name: ’Rony’, group: ‘student’}
+  - {name: ’Ali’, group: ‘teacher’}
+  - {name: ‘John’, group: ‘teacher’}

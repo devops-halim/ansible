@@ -1,0 +1,9 @@
+---
+- name: Understand Registering Variables
+  hosts: cen_node_01
+  tasks:
+    - name: Capture the output of who command in a variable
+      command: who
+      register: loggedin_users
+    - shell: echo "Ansible user is logged in"
+      when: loggedin_users.stdout.find('ansible') != -1

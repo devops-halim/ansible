@@ -1,0 +1,20 @@
+---
+- name: Clean-up the FTP and Webserver content
+  hosts: centos
+  task:
+    - name: Uninstall Packages
+      yum:
+        name: "{{item}}"
+        state: absent
+      with_items:
+      -  httpd
+      - vsftpd
+    - name: Delete FTP and HTTP files
+      file:
+      path: "{{item}}"
+      state: absent
+      with_items:
+      - /var/www/html/index.html
+      - /var/ftp/pub/README
+      - /tmp/www/http_backup.tar
+      - /tmp/ftp/ftp_backup.tar
